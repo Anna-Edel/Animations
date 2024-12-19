@@ -1,17 +1,15 @@
-
-const path = require('node:path');
+const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  devtool: 'inline-source-map',
+  devServer: {
+    port: 8888,
+  },
+  target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'),
-  },
-  devServer: {
-    static: './dist', // Указывает папку со статическими файлами
-    open: true,       // Автоматическое открытие браузера
-    port: 8080,       // Порт для разработки
-    hot: true,
+    publicPath: 'auto',
   },
   module: {
     rules: [
@@ -31,23 +29,25 @@ module.exports = {
         ],
       },
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader, 'css-loader',
+        ],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
-      }
     ],
   },
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html',
-    })
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
   ],
 };

@@ -1,62 +1,70 @@
-/* Стили для collapsible кнопки */
-.collapsible {
-  background-color: #3f3fe4;
-  border-radius: 8px;
-  color: #fff;
-  font-size: inherit;
-  padding: 20px 30px;
-  cursor: pointer;
+body {
+    color: #999;
+    align-items: center;
 }
 
-/* Изменение цвета кнопки при наведении */
-.collapsible:hover {
-  background-color: #6aa5e7;
+.header {
+    text-align: center;
+    margin-top: 30px;
+    text-shadow: 8px 8px 6px #8891cd;
 }
 
-/* Стили для контента */
-.content {
-  padding: 0 18px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color: #f1f1f1;
+.btn {
+    background-color: blue;
+    border: 5px solid rgb(136, 136, 236);
+    border-radius: 15px;
+    width: 100px;
+    height: 50px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
 }
 
-/* Стили для активной кнопки */
-.active {
-  outline: 4px solid #8383ff;
+.btn:hover {
+    font-size: 20px;
+    border: 5px solid rgb(136, 136, 236);
 }
 
-/* Стили для виджета */
-.widget {
-  background-color: #fff;
-  position: relative;
-  padding: 30px;
-  width: 600px;
+.drop {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: rgb(236, 236, 233);
+    padding: 20px;
 }
 
-/* Заголовок */
-h1 {
-  background: linear-gradient(
-    to right,
-    #7953cd 20%,
-    #00affa 30%,
-    #0190cd 70%,
-    #764ada 80%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 500% auto;
-  animation: textShine 5s ease-in-out infinite alternate;
+.border-text {
+    border: 1px solid #333;
+    margin-top: 20px;
+    transition-property: height;
+    transition-duration: 2s;
+    overflow: hidden;
+    transition: height 1s linear;
+    height: 0;
 }
 
-/* Анимация для заголовка */
-@keyframes textShine {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
+.border-text.show {
+    height: 250px;
+    transition: height 1s linear;
+}
+
+.text-drop {
+    color: #333;
+    font-size: 20px;
+    padding: 10px;
+    align-items: center;
+}
+
+.copy {
+
+    width: 60px;
+    color: black;
+    background: #eae8e8;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #333;
+    border-radius: 3px;
 }
